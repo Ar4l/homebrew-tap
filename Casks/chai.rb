@@ -7,7 +7,7 @@ cask "chai" do
   desc "Menu bar utility to prevent the system from going to sleep (fork with lid-closed and battery options)"
   homepage "https://github.com/Ar4l/chai"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Chai.app"
 
