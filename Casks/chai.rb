@@ -20,6 +20,10 @@ cask "chai" do
   zap trash: "~/Library/Preferences/me.villani.lorenzo.Chai.plist"
 
   caveats <<~EOS
+    Always use the fully-qualified name for brew commands, including
+    upgrades: `brew upgrade --cask ar4l/tap/chai`. The bare name `chai`
+    resolves to the deprecated official cask and downgrades this fork.
+
     Chai is ad-hoc signed and not notarized; the quarantine attribute is
     removed on install so Gatekeeper does not block it.
 
