@@ -6,8 +6,9 @@
 class Sshmux < Formula
   desc "One-command QR/URL connect for the sshmux in-browser SSH client"
   homepage "https://aral.cc/sshmux/"
-  version "0.1.2"
   license "MIT"
+
+  depends_on "cloudflared"
 
   on_macos do
     on_arm do
@@ -32,8 +33,6 @@ class Sshmux < Formula
       sha256 "99d7135c57833817eddb113b358944c40ae6c6e8c969f88e3176e6db1efd4971"
     end
   end
-
-  depends_on "cloudflared"
 
   def install
     # Source tarball (Intel macOS) has a Cargo workspace; prebuilt tarballs are
