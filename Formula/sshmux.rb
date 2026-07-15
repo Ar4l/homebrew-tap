@@ -12,25 +12,28 @@ class Sshmux < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.2/sshmux-aarch64-apple-darwin.tar.gz"
-      sha256 "a37b53fc85ffaca235fb30eef64b4790de1e363afe096b6c34628145bbf802d8"
+      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.3/sshmux-aarch64-apple-darwin.tar.gz"
+      sha256 "e9953cfcd9a4f964d13c01c38d96705f670d75bd8d230bb8da24b92716b0429d"
     end
     on_intel do
       # No prebuilt Intel-macOS binary yet — build from source.
-      url "https://github.com/Ar4l/sshmux/archive/refs/tags/v0.1.2.tar.gz"
-      sha256 "0bf1b399bc1400427d171eea89ae3f2c5818a2b689702078f068c56cd0860f6a"
+      url "https://github.com/Ar4l/sshmux/archive/refs/tags/v0.1.3.tar.gz"
+      sha256 "e174e693484fde2cc1bd1b24011f40669dcf04a2594be6b6faacf8bdcb7bc72d"
       depends_on "rust" => :build
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.2/sshmux-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "1af7a2ea5397469e1295dca47328af46e2d263d4c2343ac2ef95bfed22381447"
+      # No prebuilt linux-arm64 binary for v0.1.3 (CI musl-tools step failed) —
+      # build from source until the next release publishes the asset.
+      url "https://github.com/Ar4l/sshmux/archive/refs/tags/v0.1.3.tar.gz"
+      sha256 "e174e693484fde2cc1bd1b24011f40669dcf04a2594be6b6faacf8bdcb7bc72d"
+      depends_on "rust" => :build
     end
     on_intel do
-      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.2/sshmux-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "99d7135c57833817eddb113b358944c40ae6c6e8c969f88e3176e6db1efd4971"
+      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.3/sshmux-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "723cd99eed7d8308933a7275f99ef10c95e0f27d8205d98d15c6a8376be74db1"
     end
   end
 
@@ -63,7 +66,7 @@ class Sshmux < Formula
   end
 
   test do
-    assert_match "0.1.2", shell_output("#{bin}/sshmux --version")
+    assert_match "0.1.3", shell_output("#{bin}/sshmux --version")
     assert_match "--local-only", shell_output("#{bin}/sshmux --help")
   end
 end
