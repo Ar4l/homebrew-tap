@@ -11,19 +11,19 @@ class Sshmux < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.4/sshmux-aarch64-apple-darwin.tar.gz"
-      sha256 "961a82cc9f11fdced52e4b373aaff962761885f81e1cdf059a3fa6b5ca7007fb"
+      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.5/sshmux-aarch64-apple-darwin.tar.gz"
+      sha256 "5d7c6ad2fc9435712a0b0494a41d9bedea845e19ece6c2b2eff3ebce9859b349"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.4/sshmux-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "847256e175f3a60ca86f2941bc3ab1548aa7b8099589a23328e841f5e477f364"
+      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.5/sshmux-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "bfaa39eb946c2bb9bb1014b4079f257b220f0825b3334c61054e26ddc76113e2"
     end
     on_intel do
-      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.4/sshmux-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "3b57e7a2c0991da3699275ec51c40ef4c6d6a532c282429f9553f65b53cde5e6"
+      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.5/sshmux-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "98bb56a9d1f3bad6d7bad0e0db836d36a89597ef6b1fa3b0e7d167ad896020a3"
     end
   end
 
@@ -50,7 +50,7 @@ class Sshmux < Formula
   end
 
   test do
-    assert_match "0.1.4", shell_output("#{bin}/sshmux --version")
+    assert_match "0.1.5", shell_output("#{bin}/sshmux --version")
     assert_match "--local-only", shell_output("#{bin}/sshmux --help")
   end
 end
