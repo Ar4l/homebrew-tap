@@ -6,30 +6,30 @@
 class Sshmux < Formula
   desc "One-command QR/URL connect for the sshmux in-browser SSH client"
   homepage "https://aral.cc/sshmux/"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.1/sshmux-aarch64-apple-darwin.tar.gz"
-      sha256 "64f9bf0c56c2aad1dd77ced4cbc3858744dbb517bef6cab46a32379b4e186a43"
+      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.2/sshmux-aarch64-apple-darwin.tar.gz"
+      sha256 "a37b53fc85ffaca235fb30eef64b4790de1e363afe096b6c34628145bbf802d8"
     end
     on_intel do
       # No prebuilt Intel-macOS binary yet — build from source.
-      url "https://github.com/Ar4l/sshmux/archive/refs/tags/v0.1.1.tar.gz"
-      sha256 "d8b43e556548d0364e96dacc45896e9287f749bb53793298cf27b033f3b7b1dc"
+      url "https://github.com/Ar4l/sshmux/archive/refs/tags/v0.1.2.tar.gz"
+      sha256 "0bf1b399bc1400427d171eea89ae3f2c5818a2b689702078f068c56cd0860f6a"
       depends_on "rust" => :build
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.1/sshmux-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "de88c8ddf69f95a99b0a31bda1f93cb93dd4f4d20eb2479f9de4cf30ddf78826"
+      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.2/sshmux-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "1af7a2ea5397469e1295dca47328af46e2d263d4c2343ac2ef95bfed22381447"
     end
     on_intel do
-      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.1/sshmux-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "af5ff96bddceddfa149930a215d0bdcf3823e00e4f43804b08df2597942630c8"
+      url "https://github.com/Ar4l/sshmux/releases/download/v0.1.2/sshmux-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "99d7135c57833817eddb113b358944c40ae6c6e8c969f88e3176e6db1efd4971"
     end
   end
 
@@ -64,7 +64,7 @@ class Sshmux < Formula
   end
 
   test do
-    assert_match "sshmux", shell_output("#{bin}/sshmux --version")
+    assert_match "0.1.2", shell_output("#{bin}/sshmux --version")
     assert_match "--local-only", shell_output("#{bin}/sshmux --help")
   end
 end
